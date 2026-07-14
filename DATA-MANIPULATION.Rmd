@@ -1,0 +1,72 @@
+---
+title: "data manipulation"
+output: html_document
+date: "2026-07-13"
+---
+
+```{r}
+  # install.packages('tidyverse')
+```
+```{r}
+library("tidyverse")
+library("gapminder")
+```
+#yyyyy
+
+```{r}
+glimpse(gapminder)
+#do not use quotation marks for the glimpse function, use it only when you want to load the library
+```
+
+```{r}
+head(gapminder)
+```
+```{r}
+summary(gapminder)
+```
+```{r}
+gapminder[gapminder$year==1957,]
+```
+```{r}
+gapminder |> filter(year==1957)
+```
+```{r}
+gapminder |> filter(country == 'China' & year == 1957)
+
+```
+```{r}
+gapminder |> arrange(lifeExp)
+```
+```{r}
+gapminder |> arrange(desc(lifeExp))
+
+#desc is used to show the highest 
+```
+```{r}
+gapminder |> arrange(desc(gdpPercap))
+
+```
+```{r}
+gapminder |> arrange(desc(pop))
+
+```
+#filter for the year 1957, then arrange in descending order of population
+```{r}
+gapminder |> filter(year==1957) |> arrange(desc(pop))
+
+```
+```{r}
+gapminder |> filter(year<2000 & year > 1960) |> arrange(desc(gdpPercap))
+```
+```{r}
+gapminder1 = gapminder |> mutate(lifeExp = lifeExp*12)
+```
+#the mutate verb is used to change or create a column
+
+```{r}
+gapminder |> filter(year==2007) |> mutate(lifeExpMonths = 12* lifeExp) |> arrange(desc(lifeExpMonths))
+```
+```{r}
+gapminder |> filter(year==2007) |> mutate(lifeExpMonths = 12* lifeExp) |> arrange(desc(gdpPercap))
+```
+

@@ -368,6 +368,7 @@ display: none;
 ## ✖ dplyr::lag()    masks stats::lag()
 ## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 <pre class="r"><code>library(&quot;gapminder&quot;)</code></pre>
+<p>#yyyyy</p>
 <pre class="r"><code>glimpse(gapminder)</code></pre>
 <pre><code>## Rows: 1,704
 ## Columns: 6
@@ -549,6 +550,21 @@ population</p>
 ##  8 Israel           Asia       2007    80.7   6426679    25523.          969.
 ##  9 France           Europe     2007    80.7  61083916    30470.          968.
 ## 10 Canada           Americas   2007    80.7  33390141    36319.          968.
+## # ℹ 132 more rows</code></pre>
+<pre class="r"><code>gapminder |&gt; filter(year==2007) |&gt; mutate(lifeExpMonths = 12* lifeExp) |&gt; arrange(desc(gdpPercap))</code></pre>
+<pre><code>## # A tibble: 142 × 7
+##    country          continent  year lifeExp       pop gdpPercap lifeExpMonths
+##    &lt;fct&gt;            &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;         &lt;dbl&gt;
+##  1 Norway           Europe     2007    80.2   4627926    49357.          962.
+##  2 Kuwait           Asia       2007    77.6   2505559    47307.          931.
+##  3 Singapore        Asia       2007    80.0   4553009    47143.          960.
+##  4 United States    Americas   2007    78.2 301139947    42952.          939.
+##  5 Ireland          Europe     2007    78.9   4109086    40676.          947.
+##  6 Hong Kong, China Asia       2007    82.2   6980412    39725.          986.
+##  7 Switzerland      Europe     2007    81.7   7554661    37506.          980.
+##  8 Netherlands      Europe     2007    79.8  16570613    36798.          957.
+##  9 Canada           Americas   2007    80.7  33390141    36319.          968.
+## 10 Iceland          Europe     2007    81.8    301931    36181.          981.
 ## # ℹ 132 more rows</code></pre>
 
 
